@@ -164,7 +164,7 @@
 - name: Give permission to the dspace user
   file:
     path: /dspace
-    owner: '{{ work_user }}'
+    owner: '{{ tomcat_user }}'
     recurse: true  
     state: directory
     mode: '777'
