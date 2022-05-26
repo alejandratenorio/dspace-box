@@ -107,17 +107,38 @@
     chdir: '{{ dspace_install_dir}}/dspace/target/dspace-installer'
 
 
+# - name: Copy a folders
+#   ansible.builtin.copy:
+#     src: /dspace/webapps/
+#     dest: '{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/webapps'
+#     directory_mode: yes
+#     remote_src: yes
+#     follow: yes
+#   become: true
+
+# - name: Check and add env vars
+#   shell: '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/catalina.sh start'
+
 - name: Copy a folders
   ansible.builtin.copy:
-    src: /dspace/webapps/
-    dest: '{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/webapps'
+    src: /dspace/webapps/server
+    dest: '/var/lib/tomcat9/webapps'
     directory_mode: yes
     remote_src: yes
     follow: yes
   become: true
 
-- name: Check and add env vars
-  shell: '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/catalina.sh start'
+- name: Give permission to the dspace user
+  file:
+    path: /var/lib/tomcat9/webapps
+    owner: '{{work_user}}'
+    recurse: true  
+  become: true  
+
+- name: restart tomcat
+  shell: systemctl restart tomcat9
+  become: true
+
 
 - name: Copy a folders solr cores
   ansible.builtin.copy:
