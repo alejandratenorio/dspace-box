@@ -78,7 +78,7 @@
   become: true 
 
 - name: Run 'mvn pkg' command to build dspace
-  shell: mvn package
+  shell: mvn -U clean package
   become: true
   args: 
     chdir: '{{ dspace_install_dir }}'
@@ -102,7 +102,7 @@
 #   shell: psql postgresql://dspace:dspace@localhost:5432/dspace
 
 - name: Install dspace by using ant
-  shell: ant fresh_install
+  shell: ant update
   args:
     chdir: '{{ dspace_install_dir}}/dspace/target/dspace-installer'
 
