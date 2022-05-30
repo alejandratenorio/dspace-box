@@ -22,12 +22,11 @@
   git:
     repo: "{{ dspace_backend_url }}"
     dest: "{{ dspace_install_dir }}"
+    version: "{{ dspace_version }}"
     force: yes
     clone: yes
     update: no
 
-- name: Switch branch
-  shell: cd {{ dspace_install_dir }} && git checkout dspace-7.2.1 && ls -l
 
 - name: Creating directory for dspace installation
   file:
