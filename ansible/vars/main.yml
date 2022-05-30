@@ -128,3 +128,10 @@ ui_admin_pass: tomcat
 tomcat_install_java: false
 tomcat_webapps_auto_deployment: false
 dspace_backend_url: "https://github.com/DSpace/DSpace.git"
+
+dspace_users:
+  - { email: 'user1@test.edu', first_name: 'user', last_name: 'test', password: 'secret1' }
+  - { email: 'user2@test.edu', first_name: 'user', last_name: 'test', password: 'secret2' }
+
+
+
