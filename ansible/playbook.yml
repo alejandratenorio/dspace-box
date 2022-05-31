@@ -12,14 +12,14 @@
   - ansible.posix
 
   roles:
-    - ui
-    - java
-    - ant
-    - solr
-    - tomCat
-    - postgreSQL-remote
-    - maven
-    - dspace
+    # - ui
+    # - java
+    # - ant
+    # - solr
+    # - tomCat
+    # - postgreSQL-remote
+    # - maven
+    # - dspace
     - dspace-users
   
   tasks:
