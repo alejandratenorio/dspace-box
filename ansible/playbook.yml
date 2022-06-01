@@ -20,7 +20,7 @@
     - postgreSQL-remote
     - maven
     - dspace
-    - dspace-users
+#     - dspace-users
   
   tasks:
   
