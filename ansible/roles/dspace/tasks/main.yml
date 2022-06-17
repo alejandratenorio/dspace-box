@@ -58,6 +58,11 @@
       ]
     - ["^dspace.ui.url = ", "dspace.ui.url = {{ cfg_client_url }}"]
 
+- name: adjust more
+  lineinfile:
+    line: 'dspace.ui.url = {{ client_http_protocol }}://{{ ip_client }}:{{ client_port }}'
+    path: "{{dspace_install_dir}}/dspace/config/local.cfg"
+    insertafter: EOF
 
 - name: create directory for dspace installation
   file:
