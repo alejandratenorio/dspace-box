@@ -101,8 +101,10 @@
     name: pm2   
     global: yes
   become: true
-       
-
+   
+- name: stop all prior pm2 processes
+  shell: pm2 stop all
+  
 - name: copy config file for dev
   template:
     src: ../files/config.dev.yml
