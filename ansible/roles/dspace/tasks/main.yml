@@ -18,6 +18,12 @@
     owner: '{{work_user}}'
   become: true
 
+- name: Creating directory for dspace installation
+  file:
+    path: "/var/lib/tomcat9/webapps/{{ server_namespace }}"
+    state: directory
+  become: true
+
 - name: Download the backend code from the gitrepo of DSpace
   git:
     repo: "{{ dspace_backend_url }}"
@@ -130,7 +136,7 @@
 - name: Copy a folders
   ansible.builtin.copy:
     src: '/dspace/webapps/server/'
-    dest: '/var/lib/tomcat9/webapps/dspace-backend'
+    dest: '/var/lib/tomcat9/webapps/{{ server_namespace }}'
     directory_mode: yes
     remote_src: yes
     follow: yes
