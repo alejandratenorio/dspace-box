@@ -1,7 +1,7 @@
 ---
-- name: remove dir
-  shell: rm -r /var/lib/tomcat9/webapps/*
-  become: true
+# - name: remove dir
+#   shell: rm -r /var/lib/tomcat9/webapps/*
+#   become: true
    
 
 - name: Creating directory for dspace download
