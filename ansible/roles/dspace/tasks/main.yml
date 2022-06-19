@@ -141,6 +141,10 @@
     remote_src: yes
     follow: yes
   become: true
+  
+- name: check backend
+  shell: 'cd /var/lib/tomcat9/webapps/ && ls -l && cd /var/lib/tomcat9/webapps/{{ server_namespace }} && ls -l'
+  become: true
 
 - name: Give permission to the dspace user
   file:
