@@ -127,11 +127,10 @@
 
 # - name: Check and add env vars
 #   shell: '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/catalina.sh start'
-
 - name: Copy a folders
   ansible.builtin.copy:
-    src: /dspace/webapps/server
-    dest: '/var/lib/tomcat9/webapps'
+    src: '/dspace/webapps/server/'
+    dest: '/var/lib/tomcat9/webapps/{{ server_namespace }}'
     directory_mode: yes
     remote_src: yes
     follow: yes
