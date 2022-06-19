@@ -129,7 +129,7 @@
 #   shell: '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/catalina.sh start'
 - name: Copy a folders
   ansible.builtin.copy:
-    src: '/dspace/webapps/server/*'
+    src: '/dspace/webapps/server/'
     dest: '/var/lib/tomcat9/webapps/dspace-backend'
     directory_mode: yes
     remote_src: yes
