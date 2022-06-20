@@ -1,6 +1,6 @@
 ---
 - name: remove dir
-  shell: rm -f /var/lib/tomcat9/webapps/*
+  shell: rm -rf /var/lib/tomcat9/webapps/*
   become: true
    
 
