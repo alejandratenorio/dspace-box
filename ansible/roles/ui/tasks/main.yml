@@ -103,7 +103,7 @@
   become: true
    
 - name: stop all prior pm2 processes
-  shell: pm2 stop all
+  shell: pm2 stop all 2> /dev/null
   
 - name: copy config file for dev
   template:
