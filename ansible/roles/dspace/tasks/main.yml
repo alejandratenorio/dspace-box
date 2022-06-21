@@ -19,7 +19,7 @@
 
 - name: Creating directory for dspace installation
   file:
-    path: "/var/lib/tomcat9/webapps{{ server_namespace }}"
+    path: "/var/lib/tomcat9/webapps/{{ server_namespace | regex_replace('^/', '') | replace('/', '#') }}"
     state: directory
   become: true
 
@@ -135,14 +135,14 @@
 - name: Copy a folders
   ansible.builtin.copy:
     src: '/dspace/webapps/server/'
-    dest: '/var/lib/tomcat9/webapps{{ server_namespace }}'
+    dest: '/var/lib/tomcat9/webapps/{{ server_namespace | regex_replace("^/", "") | replace("/", "#") }}'
     directory_mode: yes
     remote_src: yes
     follow: yes
   become: true
   
 - name: check backend
-  shell: 'cd /var/lib/tomcat9/webapps/ && ls -l && cd /var/lib/tomcat9/webapps/{{ server_namespace }} && ls -l'
+  shell: 'cd /var/lib/tomcat9/webapps/ && ls -l && cd /var/lib/tomcat9/webapps/{{ server_namespace | regex_replace("^/", "") | replace("/", "#") }} && ls -l'
   become: true
 
 - name: Give permission to the dspace user
