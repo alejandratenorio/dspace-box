@@ -15,7 +15,7 @@
 
 su -m {{work_user}} -c '/opt/bin/solr/solr-{{ solr_version }}/bin/solr restart -force &'
 
-su -m {{work_user}} -c '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/startup.sh'
+# su -m {{work_user}} -c '{{ tomcat_install_dir}}/apache-tomcat-{{ tomcat_version }}/bin/startup.sh'
 
 
 exit 0
