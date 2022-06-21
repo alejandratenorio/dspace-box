@@ -22,10 +22,12 @@
   shell: cat /etc/tomcat9/tomcat-users.xml
   become: true 
 
-- name: start tomcat
-  shell: systemctl restart tomcat9
-  become: true
+# - name: start tomcat
+#   shell: systemctl restart tomcat9
+#   become: true
 
+
+  
 - name: check tomcat
   shell: cd /etc/systemd/system/multi-user.target.wants && cat tomcat9.service
 
@@ -36,13 +38,21 @@
     follow: yes
   become: true   
 
+- name: Start and enable Tomcat service
+  systemd:
+    name: tomcat9
+    state: restarted
+    enabled: true
+  become: true
+
+
 # - name: start reload
 #   shell:   systemctl daemon-reload
 #   become: true  
 
-- name: start tomcat
-  shell: systemctl restart tomcat9
-  become: true
+# - name: start tomcat
+#   shell: systemctl restart tomcat9
+#   become: true
 # - name: Creates directory for tomcat download
 #   file:
 #     path: "{{ tomcat_download_dir }}"
