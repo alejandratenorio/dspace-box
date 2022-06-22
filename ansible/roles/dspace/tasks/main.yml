@@ -152,8 +152,11 @@
     recurse: true  
   become: true  
 
-- name: restart tomcat
-  shell: systemctl restart tomcat9
+- name: Start and enable Tomcat service
+  systemd:
+    name: tomcat9
+    state: restarted
+    enabled: true
   become: true
 
 
