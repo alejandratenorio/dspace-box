@@ -55,7 +55,7 @@ tomcat_install_dir: /opt
 solr_download_dir: /opt/tmp/solr
 solr_install_dir: /opt/bin/solr
 ant_version: 1.10.10
-dspace_angular_version: dspace-7.2
+dspace_angular_version: main
 tomcat_version: 9.0.59
 solr_version: 8.11.1
 
@@ -82,8 +82,9 @@ server_port: 8080
 client_port: 4000
 ssl_enabled_client: false
 ssl_enabled_server: false
-ui_namespace: /
-server_namespace: /server
+base_path: ""
+ui_namespace: "{{ base_path }}/"
+server_namespace: "{{ base_path }}/server"
 admin_email: 'test@test.edu'
 admin_first_name: 'admin'
 admin_last_name: 'user'
@@ -91,9 +92,21 @@ admin_password: 'admin'
 client_http_protocol: http
 server_http_protocol: http
 
+install_apache: false
+apache_listening_port: 80
+
+public_server_host: "{{ ip_server }}"
+public_server_port: "{{ apache_listening_port if install_apache else server_port }}"
+public_server_protocol: "{{ server_http_protocol }}"
+public_server_url: "{{ public_server_protocol }}://{{ public_server_host }}{{ ':' + public_server_port if public_server_port != '80' and public_server_port != '443' else '' }}{{ server_namespace }}"
+
+public_client_host: "{{ ip_client }}"
+public_client_port: "{{ apache_listening_port if install_apache else client_port }}"
+public_client_protocol: "{{ client_http_protocol }}"
+public_client_url: "{{ public_client_protocol }}://{{ public_client_host }}{{ ':' + public_client_port if public_client_port != '80' and public_client_port != '443' else '' }}{{ ui_namespace }}"
+
 cfg_server_url: "{{ server_http_protocol }}://{{ ip_server }}:{{ server_port }}{{ server_namespace }}"
-cfg_client_url: "{{ client_http_protocol }}://{{ ip_client }}:{{ client_port }}"
-cfg_client_url_http: "{{ client_http_protocol }}://{{ ip_client }}"
+cfg_client_url: "{{ client_http_protocol }}://{{ ip_client }}:{{ client_port }}{{ ui_namespace }}"
 
 work_user:  "{{ ansible_user | default(lookup('env', 'USER')) }}"
 dspace_user: dspace
