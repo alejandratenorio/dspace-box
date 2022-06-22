@@ -26,3 +26,11 @@
     register: ps
 
   - debug: var=ps.stdout_lines
+
+- hosts: all
+  become: true
+  vars_files:
+      - vars/main.yml
+  roles:
+    - role: apache
+      when: install_apache

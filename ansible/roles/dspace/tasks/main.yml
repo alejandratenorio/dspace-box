@@ -54,18 +54,18 @@
   loop:
     - [
         "^dspace.server.url=",
-        "dspace.server.url={{ cfg_server_url }}",
+        "dspace.server.url={{ public_server_url | regex_replace('/$', '') }}",
       ]
-    - ["^dspace.ui.url=", "dspace.ui.url={{ cfg_client_url }}"]
+    - ["^dspace.ui.url=", "dspace.ui.url={{ public_client_url | regex_replace('/$', '') }}"]
     - [
         "^dspace.server.url = ",
-        "dspace.server.url = {{ cfg_server_url }}",
+        "dspace.server.url = {{ public_server_url | regex_replace('/$', '') }}",
       ]
-    - ["^dspace.ui.url = ", "dspace.ui.url = {{ cfg_client_url }}"]
+    - ["^dspace.ui.url = ", "dspace.ui.url = {{ public_client_url | regex_replace('/$', '') }}"]
 
 - name: adjust more
   lineinfile:
-    line: 'dspace.ui.url = {{ client_http_protocol }}://{{ ip_client }}:{{ client_port }}'
+    line: "dspace.ui.url = {{ public_client_url | regex_replace('/$', '') }}"
     path: "{{dspace_install_dir}}/dspace/config/local.cfg"
     insertafter: EOF
 

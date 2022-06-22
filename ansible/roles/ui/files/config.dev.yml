@@ -6,6 +6,6 @@ ui:
 
 rest:
   ssl: {{ ssl_enabled_server }}
-  host: {{ ip_server }}
-  port: {{ server_port }}
+  host: {{ public_server_host }}
+  port: {{ public_server_port }}
   nameSpace: {{ server_namespace }}
