@@ -3,7 +3,7 @@
   become: true
 
 - name: install pexpect
-  shell: pip install pexpect
+  shell: pip3 install pexpect
   become: true
 
 - name: clean db
