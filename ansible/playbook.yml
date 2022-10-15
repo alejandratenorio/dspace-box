@@ -19,6 +19,7 @@
     - postgreSQL-remote
     - maven
     - dspace
+    - dspace-migration
   
   tasks:
   
