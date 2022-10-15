@@ -32,6 +32,7 @@
      - wget
      - "jq"
      - python3-psycopg2 
+     - python3-pip
      - adduser
      - net-tools
      - lsof
