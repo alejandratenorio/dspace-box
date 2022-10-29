@@ -30,7 +30,7 @@
     version: "{{ dspace_version }}"
     force: yes
     clone: yes
-    update: no
+    update: yes
 
 
 - name: Creating directory for dspace installation
