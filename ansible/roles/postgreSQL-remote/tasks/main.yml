@@ -159,7 +159,7 @@
     login_password: "{{ postgres_password }}"
 
 - name: update db
-  shell: 'psql {{ postgres_user }} {{ db_name }} < /data/dspace/dspace.sql' 
+  shell: 'psql {{ postgres_user }} {{ db_name }} < /opt/bin/dspace/dspace01.sql' 
   become: true 
 
 - name: Add pgcrypto
