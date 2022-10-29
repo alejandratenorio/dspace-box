@@ -158,6 +158,29 @@
     login_user: "{{ postgres_user }}"
     login_password: "{{ postgres_password }}"
 
+- name: Creating directory for dspace download
+  file:
+    path: "{{ dspace_download_dir }}"
+    state: directory
+    owner: '{{work_user}}'
+  become: true
+
+- name: Creating directory for dspace installation
+  file:
+    path: "{{ dspace_install_dir }}"
+    state: directory
+    owner: '{{work_user}}'
+  become: true
+  
+- name: Download the backend code from the gitrepo of DSpace
+  git:
+    repo: "{{ dspace_backend_url }}"
+    dest: "{{ dspace_install_dir }}"
+    version: "{{ dspace_version }}"
+    force: yes
+    clone: yes
+    update: yes
+
 - name: update db
   shell: 'psql {{ postgres_user }} {{ db_name }} < /opt/bin/dspace/dspace01.sql' 
   become: true 
