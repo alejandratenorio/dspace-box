@@ -3,35 +3,11 @@
   shell: rm -rf /var/lib/tomcat9/webapps/*
   become: true
 
-- name: Creating directory for dspace download
-  file:
-    path: "{{ dspace_download_dir }}"
-    state: directory
-    owner: '{{work_user}}'
-  become: true
-
-- name: Creating directory for dspace installation
-  file:
-    path: "{{ dspace_install_dir }}"
-    state: directory
-    owner: '{{work_user}}'
-  become: true
-
 - name: Creating directory for dspace installation
   file:
     path: "/var/lib/tomcat9/webapps/{{ server_namespace | regex_replace('^/', '') | replace('/', '#') }}"
     state: directory
   become: true
-
-- name: Download the backend code from the gitrepo of DSpace
-  git:
-    repo: "{{ dspace_backend_url }}"
-    dest: "{{ dspace_install_dir }}"
-    version: "{{ dspace_version }}"
-    force: yes
-    clone: yes
-    update: yes
-
 
 - name: Creating directory for dspace installation
   file:
