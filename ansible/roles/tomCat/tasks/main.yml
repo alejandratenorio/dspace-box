@@ -46,9 +46,9 @@
 #   become: true
 
 
-- name: start reload
-  shell:   systemctl daemon-reload
-  become: true  
+# - name: start reload
+#   shell:   systemctl daemon-reload
+#   become: true  
 
 - name: start tomcat
   shell: systemctl restart tomcat9
