@@ -182,7 +182,7 @@
     update: yes
 
 - name: update db
-  shell: 'cd /opt/local/dspace && psql -U {{ postgres_user }} {{ db_name }} < /opt/dspace/dspace01.sql' 
+  shell: 'psql -U {{ postgres_user }} {{ db_name }} < /opt/dspace/dspace01.sql' 
   become: true 
 
 - name: Add pgcrypto
