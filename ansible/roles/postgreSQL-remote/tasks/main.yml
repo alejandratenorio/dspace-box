@@ -182,7 +182,7 @@
     update: yes
 
 - name: update db
-  shell: 'cd /opt/local/dspace && export GIT_DISCOVERY_ACROSS_FILESYSTEM=1 && git add . && git checkout dev && git commit -m "rigid commit" && psql -U {{ postgres_user }} {{ db_name }} < /opt/dspace/dspace01.sql' 
+  shell: 'cd /opt/local/dspace && psql -U {{ postgres_user }} {{ db_name }} < /opt/dspace/dspace01.sql' 
   become: true 
 
 - name: Add pgcrypto
