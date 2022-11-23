@@ -11,12 +11,12 @@
   apt: name=tomcat9-admin state=present
   become: true
 
-# - name: Adjust tomcat config
-#   template:
-#     dest: "/etc/tomcat9/tomcat-users.xml"
-#     src: ../files/tomcat-users.xml
-#     follow: yes
-#   become: true
+- name: Adjust tomcat config
+  template:
+    dest: "/etc/tomcat9/tomcat-users.xml"
+    src: ../files/tomcat-users.xml
+    follow: yes
+  become: true
 
 - name: check tomcat
   shell: cat /etc/tomcat9/tomcat-users.xml
@@ -31,19 +31,19 @@
 - name: check tomcat
   shell: cd /etc/systemd/system/multi-user.target.wants && cat tomcat9.service
 
-# - name:  copying tomcat service file
-#   copy:
-#     src: ../files/tomcat9.service
-#     dest: /etc/systemd/system/multi-user.target.wants/tomcat9.service
-#     follow: yes
-#   become: true   
+- name:  copying tomcat service file
+  copy:
+    src: ../files/tomcat9.service
+    dest: /etc/systemd/system/multi-user.target.wants/tomcat9.service
+    follow: yes
+  become: true   
 
-# - name: Start and enable Tomcat service
-#   systemd:
-#     name: tomcat9
-#     state: restarted
-#     enabled: true
-#   become: true
+- name: Start and enable Tomcat service
+  systemd:
+    name: tomcat9
+    state: restarted
+    enabled: true
+  become: true
 
 
 # - name: start reload
