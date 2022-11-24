@@ -152,7 +152,7 @@
   become: true 
 
 - name: Ensure solr is started and enabled on boot.
-  shell: /opt/bin/solr/solr-{{ solr_version }}/bin/solr restart -force &
+  shell: /opt/solr/solr-{{ solr_version }}/bin/solr restart -force &
   args:
     warn: false 
 
