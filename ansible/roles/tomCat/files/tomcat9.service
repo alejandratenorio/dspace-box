@@ -17,11 +17,11 @@ Environment="CATALINA_TMPDIR=/tmp"
 Environment="JAVA_OPTS=-Djava.awt.headless=true"
 
 # Lifecycle
-#Type=simple
-#ExecStartPre=+/usr/libexec/tomcat9/tomcat-update-policy.sh
-#ExecStart=/bin/sh /usr/libexec/tomcat9/tomcat-start.sh
-#SuccessExitStatus=143
-#Restart=on-abort
+Type=simple
+ExecStartPre=+/usr/libexec/tomcat9/tomcat-update-policy.sh
+ExecStart=/bin/sh /usr/libexec/tomcat9/tomcat-start.sh
+SuccessExitStatus=143
+Restart=on-abort
 
 # Logging
 SyslogIdentifier=tomcat9
@@ -38,7 +38,8 @@ ProtectSystem=strict
 ReadWritePaths=/etc/tomcat9/Catalina/
 ReadWritePaths=/var/lib/tomcat9/webapps/
 ReadWritePaths=/var/log/tomcat9/
-ReadWritePaths=/data/dspace01
+ReadWritePaths=/data/dspace-install/
+
 
 [Install]
 WantedBy=multi-user.target
