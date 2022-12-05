@@ -68,7 +68,7 @@
   become: true 
 
 - name: Run 'mvn pkg' command to build dspace
-  shell: mvn -U -X clean package
+  shell: mvn clean package
   become: true
   args: 
     chdir: '{{ dspace_install_dir }}'
