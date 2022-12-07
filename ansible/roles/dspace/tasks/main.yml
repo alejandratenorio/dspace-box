@@ -95,6 +95,7 @@
   shell: ant update
   args:
     chdir: '{{ dspace_download_dir }}/dspace/target/dspace-installer'
+  become: true
 
 
 # - name: Copy a folders
