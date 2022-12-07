@@ -175,7 +175,7 @@
 - name: Download the backend code from the gitrepo of DSpace
   git:
     repo: "{{ dspace_backend_url }}"
-    dest: "{{ dspace_install_dir }}"
+    dest: "{{ dspace_download_dir }}"
     version: "{{ dspace_version }}"
     force: yes
     clone: yes
