@@ -181,9 +181,9 @@
     clone: yes
     update: no
 
-# - name: update db
-#   shell: 'psql -U {{ postgres_user }} {{ db_name }} < /opt/local/dspace/dspace01.sql' 
-#   become: true 
+- name: update db
+  shell: 'psql -U {{ postgres_user }} {{ db_name }} < /opt/local/dspace/dspace01.sql' 
+  become: true 
 
 - name: Add pgcrypto
   community.postgresql.postgresql_ext:
