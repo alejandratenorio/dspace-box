@@ -88,8 +88,8 @@
   become: true
 
 
-- name: Check db whether able to login
-  shell: psql postgresql://dspace:dspace@localhost:5432/dspace
+# - name: Check db whether able to login
+#   shell: psql postgresql://dspace:dspace@localhost:5432/dspace
 
 - name: Install dspace by using ant
   shell: ant fresh_install
