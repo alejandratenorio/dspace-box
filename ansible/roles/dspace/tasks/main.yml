@@ -18,13 +18,13 @@
 
 
 - name: Modify and move the configuration to the  necessary destination
-  copy: src='{{ dspace_install_dir }}/dspace/config/local.cfg.EXAMPLE' dest='{{ dspace_install_dir }}/dspace/config/local.cfg' remote_src=true follow=yes
+  copy: src='{{ dspace_download_dir }}/dspace/config/local.cfg.EXAMPLE' dest='{{ dspace_download_dir }}/dspace/config/local.cfg' remote_src=true follow=yes
 
 
 
 - name: Adjust local.cfg
   lineinfile:
-    path: "{{dspace_install_dir}}/dspace/config/local.cfg"
+    path: "{{dspace_download_dir}}/dspace/config/local.cfg"
     line: "{{ item[1] }}"
     regexp: "{{ item[0] }}"
   loop:
@@ -42,7 +42,7 @@
 - name: adjust more
   lineinfile:
     line: "dspace.ui.url = {{ public_client_url | regex_replace('/$', '') }}"
-    path: "{{dspace_install_dir}}/dspace/config/local.cfg"
+    path: "{{dspace_download_dir}}/dspace/config/local.cfg"
     insertafter: EOF
 
 - name: create directory for dspace installation
@@ -71,7 +71,7 @@
   shell: mvn -U clean package
   become: true
   args: 
-    chdir: '{{ dspace_install_dir }}'
+    chdir: '{{ dspace_download_dir }}'
 
 - name: Give permission to the dspace user
   file:
@@ -94,7 +94,7 @@
 - name: Install dspace by using ant
   shell: ant fresh_install
   args:
-    chdir: '{{ dspace_install_dir}}/dspace/target/dspace-installer'
+    chdir: '{{ dspace_download_dir }}/dspace/target/dspace-installer'
 
 
 # - name: Copy a folders
