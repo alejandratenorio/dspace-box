@@ -201,6 +201,7 @@
   file:
     path: '{{ dspace_install_dir }}'
     owner: '{{ tomcat_user }}'
+    group: 'dspace'
     recurse: true  
     state: directory
   become: true  
