@@ -126,6 +126,8 @@ remote_server_user: '{{ work_user }}'
 
 cfg_base_href: /
 cfg_deploy_url: /
+migrate: true
+migrate_path: /opt/local/dspace/dspace01.sql
 
 
 
