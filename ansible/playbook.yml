@@ -19,7 +19,7 @@
     - postgreSQL-remote
     - maven
     - dspace
-    - dspace-migration
+    - role: dspace-migration
       when: migrate == true
   
   tasks:
