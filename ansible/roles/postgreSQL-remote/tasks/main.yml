@@ -182,7 +182,7 @@
     update: no
 
 - name: update db
-  shell: 'psql -U {{ postgres_user }} {{ db_name }} < {{ migrate_path }}' 
+  shell: 'psql -U postgres {{ db_name }} < {{ migrate_path }}' 
   become: true 
   when: migrate == true
   
