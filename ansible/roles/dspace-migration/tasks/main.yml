@@ -7,11 +7,13 @@
     update_cache: yes
     name:
     - python3-pip
-
+  become: true
+  
 - name: Install pexpect
   pip:
     name: pexpect
-
+  become: true
+  
 - name: clean db
   expect:
     command: '{{ dspace_install_dir }}/bin/dspace database clean' 
