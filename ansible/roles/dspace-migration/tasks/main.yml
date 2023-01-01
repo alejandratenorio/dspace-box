@@ -8,7 +8,7 @@
 
 - name: clean db
   expect:
-    command: /data/dspace01/bin/dspace database clean 
+    command: {{ dspace_install_dir }}/bin/dspace database clean 
     responses:
       y/n: 'y'
     echo: yes
