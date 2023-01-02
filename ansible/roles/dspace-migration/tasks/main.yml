@@ -27,6 +27,10 @@
   shell: 'psql -U postgres {{ db_name }} < {{ migrate_path }}' 
   become: true  
 
+- name: update db
+  shell: '{{ dspace_install_dir }}/bin/dspace database migrate ignored' 
+  become: true  
+
 # - name: Add pgcrypto
 #   community.postgresql.postgresql_ext:
 #     name: pgcrypto
