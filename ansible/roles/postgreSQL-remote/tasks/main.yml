@@ -187,14 +187,14 @@
   when: migrate == true
   
 
-# - name: Add pgcrypto
-#   community.postgresql.postgresql_ext:
-#     name: pgcrypto
-#     db: '{{ db_name }}'
-#     state: present
-#     login_user: "{{ postgres_user }}"
-#     login_password: "{{ postgres_password }}"
-#   become: true
+- name: Add pgcrypto
+  community.postgresql.postgresql_ext:
+    name: pgcrypto
+    db: '{{ db_name }}'
+    state: present
+    login_user: "{{ postgres_user }}"
+    login_password: "{{ postgres_password }}"
+  become: true
 
 
 
