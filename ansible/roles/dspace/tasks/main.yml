@@ -200,8 +200,8 @@
 - name: Give permission to the dspace user
   file:
     path: '{{ dspace_install_dir }}'
-    owner: '{{ tomcat_user }}'
-    group: 'dspace'
+    owner: '{{ work_user }}'
+    group: '{{ tomcat_user }}'
     recurse: true  
     state: directory
   become: true  
