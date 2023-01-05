@@ -23,7 +23,7 @@
       - postgresql-contrib
       - python3-pip
       - libpq-dev
-      - python-psycopg2
+#      - python-psycopg2
       - postgresql-client-common
     state: latest
   become: true
