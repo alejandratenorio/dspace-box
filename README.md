@@ -21,9 +21,9 @@ Prerequisites
 Perform the following steps in the terminal (Linux / macOS) or in the GitBash (Windows).
 
 ```
-git clone https://github.com/TIBHannover/dspace-box.git
-cd dspace-box
-vagrant up
+git clone https://github.com/alejandratenorio/dspace-box.git
+cd dspace-box/ansible/
+ansible-playbook -i inventory.cfg -u [YourUser] --private-key [YourPrivateKey]  playbook.yml
 ```
 
 When the installation is complete (a few minutes, depending on the download speed), dspace can be opened in the browser
