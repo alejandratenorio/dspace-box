@@ -59,7 +59,7 @@ dspace_angular_version: main
 tomcat_version: 9.0.59
 solr_version: 8.11.1
 
-dspace_version: dspace-7.2.1
+dspace_version: dspace-7.4
 maven_version: 3.8.7
 nodejs_version: 16.x
 
@@ -76,8 +76,8 @@ env: "prod"
 tomcat_user: dspace
 tomcat_password: dspace
 
-ip_client: 192.168.56.111
-ip_server: 192.168.56.111
+ip_client: 192.168.86.94
+ip_server: 192.168.86.94
 server_port: 8080
 client_port: 4000
 ssl_enabled_client: false
