@@ -48,8 +48,8 @@ allow_world_readable_tmpfiles: true
 
 ant_download_dir: /opt/local/ant
 ant_install_dir: /opt/ant
-dspace_download_dir: /opt/local/dspace
-dspace_install_dir: /dspace
+dspace_download_dir: /opt/local/dspace-src
+dspace_install_dir: /opt/local/dspace
 tomcat_download_dir: /opt/local/tomcat
 tomcat_install_dir: /opt
 solr_download_dir: /opt/local/solr
