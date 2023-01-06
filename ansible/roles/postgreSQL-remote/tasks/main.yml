@@ -53,19 +53,19 @@
 
 - name: Ensure PostgreSQL is listening on *
   lineinfile:
-    dest: /etc/postgresql/11/main/postgresql.conf
+    dest: /etc/postgresql/14/main/postgresql.conf
     regexp: '^listen_addresses\s*='
     line: "listen_addresses='*'"
     state: present
   become: true
 
 - name: check conf db
-  shell: cat /etc/postgresql/11/main/postgresql.conf
+  shell: cat /etc/postgresql/14/main/postgresql.conf
   become: true
 
 - name: Add new configuration to "pg_hba.conf"
   ansible.builtin.lineinfile:
-    path: /etc/postgresql/11/main/pg_hba.conf
+    path: /etc/postgresql/14/main/pg_hba.conf
     line: host dspace dspace 127.0.0.1 255.255.255.255 md5
     insertbefore: BOF
     state: present
@@ -73,20 +73,20 @@
 
 - name: Modify pg_hba.conf
   ansible.builtin.replace:
-    path: /etc/postgresql/11/main/pg_hba.conf
+    path: /etc/postgresql/14/main/pg_hba.conf
     regexp: "md5"
     replace: "trust"
   become: true
 
 - name: Modify pg_hba.conf
   ansible.builtin.replace:
-    path: /etc/postgresql/11/main/pg_hba.conf
+    path: /etc/postgresql/14/main/pg_hba.conf
     regexp: "peer"
     replace: "trust"
   become: true
 
 - name: check conf
-  shell: cat /etc/postgresql/11/main/pg_hba.conf
+  shell: cat /etc/postgresql/14/main/pg_hba.conf
   become: true
 
 - name: start postgres
