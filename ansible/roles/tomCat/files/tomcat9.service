@@ -11,6 +11,7 @@ RequiresMountsFor=/var/log/tomcat9 /var/lib/tomcat9
 [Service]
 
 # Configuration
+PrivateTmp=no
 Environment="CATALINA_HOME=/usr/share/tomcat9"
 Environment="CATALINA_BASE=/var/lib/tomcat9"
 Environment="CATALINA_TMPDIR=/tmp" "
