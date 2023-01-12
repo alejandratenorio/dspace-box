@@ -49,9 +49,9 @@ allow_world_readable_tmpfiles: true
 ant_download_dir: /opt/local/ant
 ant_install_dir: /opt/ant
 dspace_download_dir: /opt/local/dspace-src
-dspace_install_dir: /opt/local/dspace
+dspace_install_dir: /opt/dspace
 tomcat_download_dir: /opt/local/tomcat
-tomcat_install_dir: /opt
+tomcat_install_dir: /opt/tomcat
 solr_download_dir: /opt/local/solr
 solr_install_dir: /opt/solr
 angular_home_dir: /opt/angular
@@ -64,6 +64,7 @@ dspace_angular_version: main
 dspace_angular_git_url: https://github.com/DSpace/dspace-angular.git
 
 tomcat_version: 9.0.59
+tomcat_short_version: 9
 tomcat_download_url: "https://archive.apache.org/dist/tomcat/tomcat-9/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz"
 
 solr_version: 8.11.1
