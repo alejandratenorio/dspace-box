@@ -57,6 +57,7 @@
   become: true
 
 - name: Ensure solr is started and enabled on boot.
+  become: true
   shell: '{{ solr_install_dir }}/solr-{{ solr_version }}/bin/solr start -f -v -force &'
   args:
     warn: false
