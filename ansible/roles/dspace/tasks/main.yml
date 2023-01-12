@@ -211,5 +211,5 @@
 - name: Test REST conn
   shell: yarn test:rest
   args:
-    chdir: /ng/ngrocks
+    chdir: {{ angular_home_dir }}
     
