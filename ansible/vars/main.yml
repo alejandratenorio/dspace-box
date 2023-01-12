@@ -54,30 +54,38 @@ tomcat_download_dir: /opt/local/tomcat
 tomcat_install_dir: /opt
 solr_download_dir: /opt/local/solr
 solr_install_dir: /opt/solr
+angular_home_dir: /opt/angular
+
+
 ant_version: 1.10.10
+ant_download_url: "https://archive.apache.org/dist/ant/binaries/apache-ant-{{ ant_version }}-bin.tar.gz"
+
 dspace_angular_version: main
+dspace_angular_git_url: https://github.com/DSpace/dspace-angular.git
+
 tomcat_version: 9.0.59
+tomcat_download_url: "https://archive.apache.org/dist/tomcat/tomcat-9/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz"
+
 solr_version: 8.11.1
+solr_download_url: "https://www.apache.org/dyn/closer.lua/lucene/solr/{{solr_version}}/solr-{{solr_version}}.tgz?action=download"
 
 dspace_version: dspace-7.4
-maven_version: 3.8.7
-nodejs_version: 16.x
-
-ant_download_url: "https://archive.apache.org/dist/ant/binaries/apache-ant-{{ ant_version }}-bin.tar.gz"
 dspace_download_url: "https://github.com/DSpace/DSpace/archive/refs/tags/dspace-{{ dspace_version }}.tar.gz"
+
+maven_version: 3.8.7
 maven_download_url: "http://mirror.olnevhost.net/pub/apache/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
-dspace_angular_git_url: https://github.com/DSpace/dspace-angular.git
-angular_home_dir: /ng/ngrocks
+
+nodejs_version: 16.x
 node_download_url: "https://deb.nodesource.com/setup_{{ nodejs_version }}"
-tomcat_download_url: "https://archive.apache.org/dist/tomcat/tomcat-9/v{{tomcat_version}}/bin/apache-tomcat-{{tomcat_version}}.tar.gz"
-solr_download_url: "https://www.apache.org/dyn/closer.lua/lucene/solr/{{solr_version}}/solr-{{solr_version}}.tgz?action=download"
+
+
 env: "prod"
 
 tomcat_user: dspace
 tomcat_password: dspace
 
-ip_client: 192.168.86.94
-ip_server: 192.168.86.94
+ip_client: 192.168.86.112
+ip_server: 192.168.86.112
 server_port: 8080
 client_port: 4000
 ssl_enabled_client: false
