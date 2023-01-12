@@ -154,6 +154,7 @@
   become: true 
 
 - name: Ensure solr is started and enabled on boot.
+  become: true
   shell: /opt/solr/solr-{{ solr_version }}/bin/solr restart -force &
   args:
     warn: false 
