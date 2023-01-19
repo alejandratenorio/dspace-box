@@ -3,23 +3,6 @@
   apt: state=present
   become: true
 
-- name: Export java_home.
-  copy:
-      dest: "/usr/share/tomcat9/bin/jdk.sh" 
-      mode: a+x
-      content: |
-        #!/bin/bash
-        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
-  become: true 
-  tags: java_home
-    
-- name: Source jdk.sh
-  ansible.builtin.shell: source /usr/share/tomcat9/bin/jdk.sh
-  args:
-    executable: /bin/bash
-  tags: java_home
-  
-
 - name: Install tomcat.
   apt: name=tomcat9 state=present
   become: true
@@ -38,6 +21,22 @@
 - name: check tomcat
   shell: cat /etc/tomcat9/tomcat-users.xml
   become: true 
+
+- name: Export java_home.
+  copy:
+      dest: "/usr/share/tomcat9/bin/jdk.sh" 
+      mode: a+x
+      content: |
+        #!/bin/bash
+        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+  become: true 
+  tags: java_home
+    
+- name: Source jdk.sh
+  ansible.builtin.shell: source /usr/share/tomcat9/bin/jdk.sh
+  args:
+    executable: /bin/bash
+  tags: java_home
 
 - name: start tomcat
   shell: systemctl start tomcat9
