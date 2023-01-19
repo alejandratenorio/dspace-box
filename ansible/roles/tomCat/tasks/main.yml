@@ -13,8 +13,7 @@
   tags: java_home
 
 - name: make jdk.sh executable.
-  ansible.builtin.file:
-    shell: "chmod +x /etc/profile.d/jdk.sh"
+  shell: "chmod +x /etc/profile.d/jdk.sh"
   tags: java_home
   become: true
     
