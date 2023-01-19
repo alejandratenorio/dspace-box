@@ -11,13 +11,13 @@
   - ansible.posix
 
   roles:
-    - ui
+#    - ui
     - java
     - ant
     - solr
     - tomCat
-#    - postgreSQL-remote
-#    - maven
+    - postgreSQL-remote
+    - maven
 #    - dspace
 #    - role: dspace-migration
 #      when: migrate == true
