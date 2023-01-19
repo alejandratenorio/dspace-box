@@ -6,16 +6,15 @@
 - name: Export java_home.
   copy:
       dest: "/etc/profile.d/jdk.sh"
-      content: export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+      content: |
+        #!/bin/bash
+        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
   become: true 
   tags: java_home
 
 - name: make jdk.sh executable.
   ansible.builtin.file:
-    path: /etc/profile.d/jdk.sh
-    owner: root
-    group: root
-    mode: 755
+    shell: "chmod +x /etc/profile.d/jdk.sh"
   tags: java_home
   become: true
     
