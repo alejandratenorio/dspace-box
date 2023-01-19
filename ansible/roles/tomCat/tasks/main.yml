@@ -14,7 +14,7 @@
   tags: java_home
     
 - name: Source jdk.sh
-  shell: "source /etc/profile.d/jdk.sh"
+  ansible.builtin.shell:: source /etc/profile.d/jdk.sh
   tags: java_home
   
 
