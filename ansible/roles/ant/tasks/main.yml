@@ -27,5 +27,5 @@
 - name: Copying ant file
   template:
     src: ../files/ant.sh
-    dest: "{{ ant_install_dir }}/etc/profile.d/"
+    dest: "/etc/profile.d/"
   become: true
