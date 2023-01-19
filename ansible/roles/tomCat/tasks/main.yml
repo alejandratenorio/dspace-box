@@ -5,17 +5,13 @@
 
 - name: Export java_home.
   copy:
-      dest: "/etc/profile.d/jdk.sh"
+      dest: "/etc/profile.d/jdk.sh" 
+      mode: a+x
       content: |
         #!/bin/bash
         export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
   become: true 
   tags: java_home
-
-- name: make jdk.sh executable.
-  shell: "chmod +x /etc/profile.d/jdk.sh"
-  tags: java_home
-  become: true
     
 - name: Source jdk.sh
   shell: "source /etc/profile.d/jdk.sh"
