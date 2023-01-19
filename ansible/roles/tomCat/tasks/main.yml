@@ -17,6 +17,7 @@
     group: root
     mode: 755
   tags: java_home
+  become: true
     
 - name: Source jdk.sh
   shell: "source /etc/profile.d/jdk.sh"
