@@ -20,7 +20,7 @@
 #    - maven
 #    - dspace
 #    - role: dspace-migration
-      when: migrate == true
+#      when: migrate == true
   
   tasks:
   
