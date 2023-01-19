@@ -3,6 +3,26 @@
   apt: state=present
   become: true
 
+- name: Export java_home.
+  copy:
+      dest: "/etc/profile.d/jdk.sh"
+      content: export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+  become: true 
+  tags: java_home
+
+- name: make jdk.sh executable.
+  ansible.builtin.file:
+    path: /etc/profile.d/jdk.sh
+    owner: root
+    group: root
+    mode: 755
+  tags: java_home
+    
+- name: Source jdk.sh
+  shell: "source /etc/profile.d/jdk.sh"
+  tags: java_home
+  
+
 - name: Install tomcat.
   apt: name=tomcat9 state=present
   become: true
