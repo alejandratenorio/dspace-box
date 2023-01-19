@@ -16,10 +16,10 @@
     - ant
     - solr
     - tomCat
-    - postgreSQL-remote
-    - maven
-    - dspace
-    - role: dspace-migration
+#    - postgreSQL-remote
+#    - maven
+#    - dspace
+#    - role: dspace-migration
       when: migrate == true
   
   tasks:
