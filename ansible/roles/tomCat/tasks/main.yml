@@ -23,20 +23,11 @@
   become: true 
 
 - name: Export java_home.
-  copy:
-      dest: "/usr/share/tomcat9/bin/jdk.sh" 
-      mode: a+x
-      content: |
-        #!/bin/bash
-        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
-  become: true 
-  tags: java_home
-    
-- name: Source jdk.sh
-  ansible.builtin.shell: source /usr/share/tomcat9/bin/jdk.sh
-  args:
-    executable: /bin/bash
-  tags: java_home
+  lineinfile:
+    path: "/usr/libexec/tomcat9/tomcat-start.sh"
+    line: export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+    insertbefore: BOF
+  become: true
 
 - name: start tomcat
   shell: systemctl start tomcat9
