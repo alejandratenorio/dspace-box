@@ -18,7 +18,7 @@
     - tomCat
     - postgreSQL-remote
     - maven
-#    - dspace
+    - dspace
 #    - role: dspace-migration
 #      when: migrate == true
   
