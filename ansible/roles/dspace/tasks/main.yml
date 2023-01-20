@@ -1,11 +1,34 @@
 ---
-- name: remove dir
-  shell: rm -rf /var/lib/tomcat9/webapps/*
+- name: Creating directory for dspace download
+  file:
+    path: "{{ dspace_download_dir }}"
+    state: directory
+    owner: '{{work_user}}'
   become: true
 
 - name: Creating directory for dspace installation
   file:
-    path: "/var/lib/tomcat9/webapps/{{ server_namespace | regex_replace('^/', '') | replace('/', '#') }}"
+    path: "{{ dspace_install_dir }}"
+    state: directory
+    owner: '{{work_user}}'
+  become: true
+  
+- name: Download the backend code from the gitrepo of DSpace
+  git:
+    repo: "{{ dspace_backend_url }}"
+    dest: "{{ dspace_download_dir }}"
+    version: "{{ dspace_version }}"
+    force: yes
+    clone: yes
+    update: no
+    
+- name: remove dir
+  shell: rm -rf /var/lib/tomcat{{ tomcat_short_version }}/webapps/*
+  become: true
+
+- name: Creating directory for dspace installation
+  file:
+    path: "/var/lib/tomcat{{ tomcat_short_version }}/webapps/{{ server_namespace | regex_replace('^/', '') | replace('/', '#') }}"
     state: directory
   become: true
 
