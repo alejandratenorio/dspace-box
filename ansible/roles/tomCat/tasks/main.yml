@@ -4,22 +4,22 @@
   become: true
 
 - name: Install tomcat.
-  apt: name=tomcat9 state=present
+  apt: name=tomcat{{ tomcat_short_version }} state=present
   become: true
 
 - name: Install tomcat-admin.
-  apt: name=tomcat9-admin state=present
+  apt: name=tomcat{{ tomcat_short_version }}-admin state=present
   become: true
 
 - name: Adjust tomcat config
   template:
-    dest: "/etc/tomcat9/tomcat-users.xml"
+    dest: "/etc/tomcat{{ tomcat_short_version }}/tomcat-users.xml"
     src: ../files/tomcat-users.xml
     follow: yes
   become: true
 
 - name: check tomcat
-  shell: cat /etc/tomcat9/tomcat-users.xml
+  shell: cat /etc/tomcat{{ tomcat_short_version }}/tomcat-users.xml
   become: true 
 
 - name: Export java_home.
@@ -30,7 +30,7 @@
   become: true
 
 - name: start tomcat
-  shell: systemctl start tomcat9
+  shell: systemctl start tomcat{{ tomcat_short_version }}
   become: true
 
   
@@ -57,7 +57,7 @@
   become: true  
 
 - name: start tomcat
-  shell: systemctl restart tomcat9
+  shell: systemctl restart tomcat{{ tomcat_short_version }}
   become: true
 # - name: Creates directory for tomcat download
 #   file:
