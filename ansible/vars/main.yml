@@ -82,8 +82,8 @@ env: "prod"
 tomcat_user: dspace
 tomcat_password: dspace
 
-ip_client: 192.168.86.112
-ip_server: 192.168.86.112
+ip_client: 192.168.86.124
+ip_server: 192.168.86.124
 server_port: 8080
 client_port: 4000
 ssl_enabled_client: false
