@@ -52,6 +52,22 @@
     regexp: "{{ item[0] }}"
   loop:
     - [
+        "^dspace.dir=",
+        "dspace.dir={{ dspace_install_dir }}",
+      ]
+    - [
+        "^db.url =",
+        "db.url=jdbc:postgresql://localhost:5432/{{ db_name }}",
+      ]
+    - [
+        "^db.username =",
+        "db.username={{ db_username }}",
+      ]
+    - [
+        "^db.password =",
+        "db.password={{ db_password }}",
+      ]
+    - [
         "^dspace.server.url=",
         "dspace.server.url={{ public_server_url | regex_replace('/$', '') }}",
       ]
