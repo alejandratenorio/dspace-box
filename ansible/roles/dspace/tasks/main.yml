@@ -78,6 +78,7 @@
       ]
     - ["^dspace.ui.url = ", "dspace.ui.url = {{ public_client_url | regex_replace('/$', '') }}"]
     - ["^dspace.dir = ", "dspace.dir={{ dspace_install_dir }}"]
+    - ["^proxies.trusted.ipranges = ", "proxies.trusted.ipranges=${dspace.ui.url}, 127.0.0.1"]
 
 - name: adjust more
   lineinfile:
