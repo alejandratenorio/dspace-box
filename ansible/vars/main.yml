@@ -89,9 +89,8 @@ tomcat_password: dspace
 
 ip_client: 192.168.86.138
 ip_server: 192.168.86.138
-#ip_server: 192.168.86.138
 #ip_client: 127.0.0.1
-ip_server: 127.0.0.1
+#ip_server: 127.0.0.1
 server_port: 8080
 client_port: 4000
 ssl_enabled_client: false
