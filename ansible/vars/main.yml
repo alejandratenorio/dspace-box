@@ -56,8 +56,10 @@ angular_home_dir: /opt/angular
 ant_version: 1.10.10
 ant_download_url: "https://archive.apache.org/dist/ant/binaries/apache-ant-{{ ant_version }}-bin.tar.gz"
 
-dspace_angular_version: dspace-7.4-cimmyt
-dspace_angular_git_url: https://github.com/CIMMYT/dspace-angular.git
+#dspace_angular_version: dspace-7.4-cimmyt
+#dspace_angular_git_url: https://github.com/CIMMYT/dspace-angular.git
+dspace_angular_version: dspace-7.4
+dspace_angular_git_url: https://github.com/DSpace/dspace-angular.git
 
 tomcat_version: 9.0.59
 tomcat_short_version: 9
@@ -66,9 +68,12 @@ tomcat_download_url: "https://archive.apache.org/dist/tomcat/tomcat-9/v{{tomcat_
 solr_version: 8.11.1
 solr_download_url: "https://www.apache.org/dyn/closer.lua/lucene/solr/{{solr_version}}/solr-{{solr_version}}.tgz?action=download"
 
-dspace_version: dspace-7.4-cimmyt
 #dspace_download_url: "https://github.com/DSpace/DSpace/archive/refs/tags/dspace-{{ dspace_version }}.tar.gz"
-dspace_backend_url: "https://github.com/CIMMYT/DSpace.git"
+#dspace_version: dspace-7.4-cimmyt
+#dspace_backend_url: "https://github.com/CIMMYT/DSpace.git"
+dspace_version: dspace-7.4
+dspace_backend_url: "https://github.com/DSpace/DSpace.git"
+
 
 maven_version: 3.8.7
 maven_download_url: "http://mirror.olnevhost.net/pub/apache/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
@@ -83,6 +88,7 @@ tomcat_user: dspace
 tomcat_password: dspace
 
 ip_client: 192.168.86.138
+ip_server: 192.168.86.138
 #ip_server: 192.168.86.138
 #ip_client: 127.0.0.1
 ip_server: 127.0.0.1
